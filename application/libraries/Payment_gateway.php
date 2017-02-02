@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Payment
+class Payment_gateway
 {
     public function __construct()
     {

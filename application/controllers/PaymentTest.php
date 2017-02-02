@@ -1,16 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Payment extends CI_Controller {
+class PaymentTest extends CI_Controller {
 
-	private $moip_key = '01010100101010010101010';
-	private $moip_token = 'ABABABABABBABABABABABBBABABA';
+	private $moip_key;
+	private $moip_token;
 
 	public function __construct() {
-		
+
 		parent::__construct();
 
+		$this->config->load('moip');
 		$this->load->library('payment_gateway');
+
+		$this->moip_key = $this->config->item('moipKey');
+		$this->moip_token = $this->config->item('moipToken');
 
 		header('Content-type: Application/json'); // Just to make print_r readable
 
@@ -255,6 +259,6 @@ class Payment extends CI_Controller {
 	    print_r($moip->getAnswer());
 	}
 
-	
+
 
 }
